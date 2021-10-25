@@ -1,13 +1,12 @@
-import React from 'react';
+import React from "react";
 import "./App.css";
 import CharacterContainer from "./components/CharacterContainer";
 import Box from "@mui/material/Box";
 import { BreakingBadContextProvider } from "./contexts/BreakingBadContext";
 import ButtonAppBar from "./components/nav/ButtonAppBar";
-// import { Route } from "react-router-dom";
-// import Welcome from "./pages/Welcome";
-// import Quotes from "./pages/Quotes";
-// import LoginForm from "./components/login/LoginForm";
+import { Route } from "react-router-dom";
+import Welcome from "./pages/Welcome";
+import LoginForm from "./components/login/LoginForm";
 
 const App = () => {
   const bull = (
@@ -30,21 +29,19 @@ const App = () => {
           }}
         >
           <BreakingBadContextProvider>
-            <ButtonAppBar/>
+            <ButtonAppBar />
 
-            {/* <Route path="/welcome"> */}
-            {/* <Welcome /> */}
-            {/* </Route> */}
+            <Route path="/welcome">
+              <Welcome />
+            </Route>
 
-            {/* <Route path="/quotes">
-              <Quotes />
-            </Route> */}
+            <Route path="/characters">
+              <CharacterContainer sx={{ m: "auto", width: "auto" }} />
+            </Route>
 
-            {/* <Route path="/characters"> */}
-            <CharacterContainer sx={{ m: "auto", width: "auto" }} />
-            {/* </Route> */}
-            {/* 
-            <Route path="/login"><LoginForm /></Route> */}
+            <Route path="/login">
+              <LoginForm />
+            </Route>
           </BreakingBadContextProvider>
         </div>
 

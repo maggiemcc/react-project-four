@@ -1,13 +1,10 @@
+body {
+  background-color: black;
+}
 .App {
   text-align: center;
-  /* padding: 5%; */
-  /* background-image: url("/src/data/galaxy-unsplash.jpg"); */
-  /* background-repeat: repeat; */
-  /* background-size: 100% auto; */
-  /* background-position: center; */
   background-color: black;
   padding:2%;
-  /* margin: 0; */
 }
 
 

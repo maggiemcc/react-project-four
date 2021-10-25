@@ -1,14 +1,15 @@
-// import { useHistory } from "react-router-dom";
 import React from 'react';
 import { Box, Button, TextField } from "@mui/material";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { useHistory} from "react-router-dom";
 
 const modalStyle = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  // position: "absolute",
+  // top: "50%",
+  // left: "50%",
+  // transform: "translate(-50%, -50%)",
+  margin: "5% auto",
   width: "80%",
   maxWidth: "500px",
   bgcolor: "background.paper",
@@ -19,11 +20,12 @@ const modalStyle = {
 };
 
 const LoginForm = (props) => {
-  //   const history = useHistory();
-  //   const handleClose = () => history.push('/welcome');
-  const { closeHandler } = props;
-  
+  const history = useHistory();
+  const handleClose = () => history.push('/welcome');
+
   return (
+    <div>
+      <h1>Login Page</h1>
     <Box sx={modalStyle}>
       <Formik
         initialValues={{
@@ -52,7 +54,9 @@ const LoginForm = (props) => {
             setSubmitting(false);
           } 
           finally {
-            closeHandler();
+            // closeHandler();
+            handleClose();
+
           }
         }}
       >
@@ -112,6 +116,7 @@ const LoginForm = (props) => {
         )}
       </Formik>
     </Box>
+    </div>
   );
 };
 
