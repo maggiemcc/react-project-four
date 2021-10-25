@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import CharacterContainer from "./components/CharacterContainer";
+import CharacterContainer from "./pages/CharacterContainer";
 import Box from "@mui/material/Box";
 import { BreakingBadContextProvider } from "./contexts/BreakingBadContext";
 import ButtonAppBar from "./components/nav/ButtonAppBar";

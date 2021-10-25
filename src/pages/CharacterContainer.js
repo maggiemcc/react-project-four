@@ -1,9 +1,9 @@
 import * as React from "react";
 // import { characters } from "../data/characters";
-import CharacterCard from "./CharacterCard";
+import CharacterCard from "../components/CharacterCard";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import "./FilmCard.css";
+import "../components/FilmCard.css";
 import Typography from "@mui/material/Typography";
 import { useBreakingBadContext } from "../contexts/BreakingBadContext";
 import IconButton from "@mui/material/IconButton";
