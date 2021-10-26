@@ -47,7 +47,7 @@ const ButtonAppBar = () => {
               color="inherit"
               // onClick={handleOpen}
             >
-              <NavLink to="/login" style={{textDecoration: "none", color: "black"}}>Login</NavLink>
+              <NavLink to="/" style={{textDecoration: "none", color: "black"}}>Login</NavLink>
             </Button>
           </Toolbar>
         </AppBar>

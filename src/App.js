@@ -4,7 +4,7 @@ import CharacterContainer from "./pages/CharacterContainer";
 import Box from "@mui/material/Box";
 import { BreakingBadContextProvider } from "./contexts/BreakingBadContext";
 import ButtonAppBar from "./components/nav/ButtonAppBar";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Welcome from "./pages/Welcome";
 import LoginForm from "./components/login/LoginForm";
 
@@ -31,6 +31,7 @@ const App = () => {
           <BreakingBadContextProvider>
             <ButtonAppBar />
 
+          <Switch>
             <Route path="/welcome">
               <Welcome />
             </Route>
@@ -39,9 +40,12 @@ const App = () => {
               <CharacterContainer sx={{ m: "auto", width: "auto" }} />
             </Route>
 
-            <Route path="/login">
+            {/* <Route path="/login"> */}
+            <Route path="/">
               <LoginForm />
             </Route>
+            </Switch>
+
           </BreakingBadContextProvider>
         </div>
 
