@@ -1,15 +1,10 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-// import CardActions from "@mui/material/CardActions";
-// import IconButton from "@mui/material/IconButton";
-// import FavoriteIcon from "@mui/icons-material/Favorite";
-// import InfoIcon from "@mui/icons-material/Info";
 
 const QuotesCard = (props) => {
   const { quote } = props;
-
+ 
   return (
     <Card
       sx={{
@@ -18,6 +13,7 @@ const QuotesCard = (props) => {
         minWidth: "350px",
         m: 2,
         backgroundColor: "white",
+        fontWeight: "300",
         "&:hover": {
             backgroundColor: "green",
           color: "white",
@@ -30,14 +26,13 @@ const QuotesCard = (props) => {
           height: "100%",
         }}
       >
-        <h6>Quote: {quote.quote_id}</h6>
-        <Typography
-          sx={{ fontWeight: "bold", marginTop: "2%" }}
-          typography="h6"
-        >
+        <h6 style={{fontWeight: "300", display: "left", textAlign: "left"}}>#{quote.quote_id}</h6>
+        <h3 style={{ fontWeight: "bold", marginTop: "2%"}}>
           "{quote.quote}"
-        </Typography>
-        <h4>- {quote.author}</h4>
+        </h3>
+        <h4 style={{fontWeight: "300", textAlign: "right"}}>- {quote.author}</h4>
+
+
       </CardContent>
     </Card>
   );

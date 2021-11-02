@@ -15,6 +15,8 @@ const QuotesContainer = () => {
           justifyContent: "center",
         }}
       >
+
+        
         {breakingBadData.quotes.map((quote) => {
           return (
             <QuotesCard
