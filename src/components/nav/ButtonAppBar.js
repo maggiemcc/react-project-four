@@ -6,16 +6,65 @@ import {
   Typography,
   Button,
   IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
 } from "@mui/material";
+import { NavLink, useHistory } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-// import LoginForm from "../login/LoginForm";
-// import Modal from "@mui/material/Modal";
-import {NavLink} from 'react-router-dom';
+import GroupIcon from '@mui/icons-material/Group';
+import HomeIcon from '@mui/icons-material/Home';
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
 const ButtonAppBar = () => {
-  // const [open, setOpen] = React.useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const toggleDrawer = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const history = useHistory();
+  const handleNavChoice = (chosen) => {
+    history.push(`/${chosen}`);
+    toggleDrawer();
+  };
+
+  const drawerItemList = () => (
+    <Box
+      sx={{
+        width: 250,
+        backgroundColor: "green",
+        color: "white",
+        height: "100%",
+      }}
+      role="presentation"
+    >
+      <List>
+        <ListItem button onClick={() => handleNavChoice('welcome')}>
+          <ListItemIcon>
+            <HomeIcon sx={{ color: "white" }} />
+          </ListItemIcon>
+          <ListItemText primary="Welcome" />
+        </ListItem>
+
+        <ListItem button onClick={() => handleNavChoice('characters')}>
+          <ListItemIcon>
+            <GroupIcon sx={{ color: "white" }} />
+          </ListItemIcon>
+          <ListItemText primary="Characters" />
+        </ListItem>
+
+
+        <ListItem button onClick={() => handleNavChoice('quotes')}>
+          <ListItemIcon>
+            <FormatQuoteIcon sx={{ color: "white" }} />
+          </ListItemIcon>
+          <ListItemText primary="Quotes" />
+        </ListItem>
+      </List>
+    </Box>
+  );
 
   return (
     <>
@@ -35,29 +84,31 @@ const ButtonAppBar = () => {
               edge="start"
               color="inherit"
               aria-label="menu"
+              onClick={toggleDrawer}
               sx={{ mr: 2, justifyContent: "right", textAlign: "right" }}
             >
               <MenuIcon />
             </IconButton>
+
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Breaking Bad App
             </Typography>
 
-            <Button
-              color="inherit"
-              // onClick={handleOpen}
-            >
-              <NavLink to="/" style={{textDecoration: "none", color: "black"}}>Login</NavLink>
+            <Button color="inherit">
+              <NavLink
+                to="/login"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                Login
+              </NavLink>
             </Button>
           </Toolbar>
         </AppBar>
       </Box>
 
-      {/* <div>
-        <Modal open={open}>
-          <LoginForm closeHandler={handleClose} />
-        </Modal>
-      </div> */}
+      <Drawer anchor="left" open={isOpen} onClose={toggleDrawer}>
+        {drawerItemList()}
+      </Drawer>
     </>
   );
 };

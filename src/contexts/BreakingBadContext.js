@@ -3,30 +3,38 @@ import axios from 'axios';
 
 const BreakingBadContext = React.createContext({
   characters: [],
+  quotes: [],
 })
 
 export const BreakingBadContextProvider = (props) => {
-  const [characters, setCharacters] = React.useState([])
+  const [characters, setCharacters] = React.useState([]);
+  const [quotes, setQuotes] = React.useState([]);
 
   React.useEffect(() => {
-    const fetchCharacters = async () => {
-      const breakingBadURL = `/.netlify/functions/breakingBad`
+    const fetchBreakingBad = async () => {
+      const charactersURL = `/.netlify/functions/breakingBad`
+      const quotesURL = "https://www.breakingbadapi.com/api/quotes"
 
       try {
-        const response = await axios.get(breakingBadURL)
-        const characters = await response.data
-        setCharacters(characters)
+        const charactersResponse = await axios.get(charactersURL);
+        const characters = await charactersResponse.data;
+        setCharacters(characters);
+
+        const quotesResponse = await axios.get(quotesURL);
+        const quotes = await quotesResponse.data;
+        setQuotes(quotes);
       } 
       catch (error) {
         console.log(error)
       }
     }
-    fetchCharacters()
+    fetchBreakingBad()
   }, [])
 
   return (
     <BreakingBadContext.Provider value={{
       characters,
+      quotes,
     }}>
       {props.children}
     </BreakingBadContext.Provider>

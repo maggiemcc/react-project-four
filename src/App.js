@@ -4,9 +4,11 @@ import CharacterContainer from "./pages/CharacterContainer";
 import Box from "@mui/material/Box";
 import { BreakingBadContextProvider } from "./contexts/BreakingBadContext";
 import ButtonAppBar from "./components/nav/ButtonAppBar";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Welcome from "./pages/Welcome";
+import QuotesContainer from "./pages/QuotesContainer";
 import LoginForm from "./components/login/LoginForm";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   const bull = (
@@ -26,12 +28,17 @@ const App = () => {
             border: "2px solid white",
             padding: "0 0 2% 0",
             background: "black",
+            minHeight: "600px",
           }}
         >
-          <BreakingBadContextProvider>
+ <BreakingBadContextProvider>
             <ButtonAppBar />
 
-          <Switch>
+            <Switch>
+            <Route path="/" exact>
+              <Redirect to="/welcome" />
+            </Route>
+
             <Route path="/welcome">
               <Welcome />
             </Route>
@@ -40,12 +47,20 @@ const App = () => {
               <CharacterContainer sx={{ m: "auto", width: "auto" }} />
             </Route>
 
-            {/* <Route path="/login"> */}
-            <Route path="/">
+            <Route path="/quotes">
+              <QuotesContainer />
+            </Route>
+
+
+            <Route path="/login">
               <LoginForm />
             </Route>
-            </Switch>
 
+            <Route path="*">
+              <NotFound />
+            </Route>
+
+            </Switch>
           </BreakingBadContextProvider>
         </div>
 

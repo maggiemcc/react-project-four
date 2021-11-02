@@ -42,11 +42,10 @@ const characterInfoStyle = {
 };
 
 const favoriteStyle = {
-  // marginBottom: "2%",
-  padding: "2% 0px 4% 0px",
+  marginTop: "2%",
+  padding: "2% 0px 2% 0px",
   color: "white",
-  borderRight: "none",
-  borderLeft: "none",
+  borderTop: "3px solid white",
   borderBottom: "3px solid white",
   width: "100%",
 };
@@ -94,13 +93,14 @@ const CharacterContainer = () => {
   };
   return (
     <Box id="containerLayout">
+      <h1>Characters</h1>
       <div style={favoriteStyle}>
-        <div style={{}}>
+        <div>
           <h3
             style={{
               margin: "0 0 0 0",
               padding: 0,
-              textDecoration: "underline",
+              // textDecoration: "underline",
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "center",
