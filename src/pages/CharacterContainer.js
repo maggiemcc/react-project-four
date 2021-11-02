@@ -2,44 +2,44 @@ import * as React from "react";
 // import { characters } from "../data/characters";
 import CharacterCard from "../components/CharacterCard";
 import Box from "@mui/material/Box";
-// import Modal from "@mui/material/Modal";
+import Modal from "@mui/material/Modal";
 import "../components/FilmCard.css";
-// import Typography from "@mui/material/Typography";
+import Typography from "@mui/material/Typography";
 import { useBreakingBadContext } from "../contexts/BreakingBadContext";
 import IconButton from "@mui/material/IconButton";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CardActions from "@mui/material/CardActions";
 
-// const modalStyle = {
-//   position: "absolute",
-//   top: "50%",
-//   left: "50%",
-//   textAlign: "center",
-//   transform: "translate(-50%, -50%)",
-//   width: "80%",
-//   maxWidth: "500px",
-//   bgcolor: "background.paper",
-//   border: "2px solid #000",
-//   boxShadow: 24,
-//   p: 4,
-// };
+const modalStyle = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  textAlign: "center",
+  transform: "translate(-50%, -50%)",
+  width: "80%",
+  maxWidth: "500px",
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
-// const characterInfoContainerStyle = {
-//   textAlign: "left",
-//   border: "1px solid gray",
-//   borderRadius: "8px",
-//   padding: "2%",
-//   width: "auto",
-// };
+const characterInfoContainerStyle = {
+  textAlign: "left",
+  border: "1px solid gray",
+  borderRadius: "8px",
+  padding: "2%",
+  width: "auto",
+};
 
-// const characterInfoStyle = {
-//   margin: 0,
-//   padding: "2% 0",
-//   display: "block",
-//   paddingRight: "2.5%",
-//   width: "auto",
-//   fontSize: "14px",
-// };
+const characterInfoStyle = {
+  margin: 0,
+  padding: "2% 0",
+  display: "block",
+  paddingRight: "2.5%",
+  width: "auto",
+  fontSize: "14px",
+};
 
 const favoriteStyle = {
   marginTop: "2%",
@@ -176,7 +176,7 @@ const CharacterContainer = () => {
         })}
       </div>
 
-      {/* <div>
+      <div>
         <Modal open={open} onClose={handleClose}>
           <Box sx={modalStyle}>
             {modalInfo.map((character) => {
@@ -219,7 +219,7 @@ const CharacterContainer = () => {
             })}
           </Box>
         </Modal>
-      </div> */}
+      </div>
     </Box>
   );
 };

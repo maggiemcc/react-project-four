@@ -6,7 +6,7 @@ import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import InfoIcon from "@mui/icons-material/Info";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 const CharacterCard = (props) => {
   const { character } = props;
@@ -35,10 +35,10 @@ const CharacterCard = (props) => {
     props.addToFavoritesFunction(character);
   };
 
-  const history = useHistory();
+  // const history = useHistory();
   const handleInfoClick = () => {
-    // props.modalFunction(props.character);
-    history.push(`/characters/${character.char_id}`)
+    props.modalFunction(props.character);
+    // history.push(`/characters/${character.char_id}`)
   };
 
   return (
