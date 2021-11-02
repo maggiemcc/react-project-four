@@ -8,7 +8,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Welcome from "./pages/Welcome";
 import QuotesContainer from "./pages/QuotesContainer";
 import LoginForm from "./components/login/LoginForm";
-import NotFound from "./pages/NotFound";
+// import NotFound from "./pages/NotFound";
 
 const App = () => {
   const bull = (
@@ -56,9 +56,9 @@ const App = () => {
               <LoginForm />
             </Route>
 
-            <Route path="*">
+            {/* <Route path="*">
               <NotFound />
-            </Route>
+            </Route> */}
 
             </Switch>
           </BreakingBadContextProvider>
