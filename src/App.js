@@ -9,6 +9,7 @@ import Welcome from "./pages/Welcome";
 import QuotesContainer from "./pages/QuotesContainer";
 import LoginForm from "./components/login/LoginForm";
 import NotFound from "./pages/NotFound";
+import CharacterDetail from './pages/CharacterDetail'
 
 const App = () => {
   const bull = (
@@ -39,12 +40,16 @@ const App = () => {
               <Redirect to="/welcome" />
             </Route>
 
-            <Route path="/welcome">
+            <Route path="/welcome" exact>
               <Welcome />
             </Route>
 
-            <Route path="/characters">
+            <Route path="/characters" exact>
               <CharacterContainer sx={{ m: "auto", width: "auto" }} />
+            </Route>
+
+            <Route path="/characters/:characterId" exact>
+              <CharacterDetail />
             </Route>
 
             <Route path="/quotes">

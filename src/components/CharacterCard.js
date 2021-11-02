@@ -6,11 +6,12 @@ import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import InfoIcon from "@mui/icons-material/Info";
-// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useHistory } from "react-router-dom";
 
 const CharacterCard = (props) => {
+  const { character } = props;
   const statusColor =
-    props.character.status === "Alive" ? "darkgreen" : "darkred";
+    character.status === "Alive" ? "darkgreen" : "darkred";
 
   let imageStyle = {
     height: "auto",
@@ -31,11 +32,13 @@ const CharacterCard = (props) => {
 
   const handleFavoriteClick = () => {
     setFavorite(!favorite);
-    props.addToFavoritesFunction(props.character);
+    props.addToFavoritesFunction(character);
   };
 
+  const history = useHistory();
   const handleInfoClick = () => {
-    props.modalFunction(props.character);
+    // props.modalFunction(props.character);
+    history.push(`/characters/${character.char_id}`)
   };
 
   return (
@@ -65,12 +68,12 @@ const CharacterCard = (props) => {
           color="primary.contrastText"
           typography="h6"
         >
-          {props.character.name} <br></br>
+          {character.name} <br></br>
         </Typography>
         <div>
           <div>
             <div style={{ margin: "auto" }}>
-              <img style={imageStyle} src={props.character.img} alt="poster" />
+              <img style={imageStyle} src={character.img} alt="characterpicture" />
 
               <div
                 style={{
