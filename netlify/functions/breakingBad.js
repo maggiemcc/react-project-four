@@ -4,7 +4,8 @@ exports.handler = async function (event, context) {
   console.log(event)
   console.log(context)
   try {
-    const response = await axios.get(`https://www.breakingbadapi.com/api/characters`)
+    const {option} = event.queryStringParameters
+    const response = await axios.get(`https://www.breakingbadapi.com/api/${option}`)
     
     return {
       statusCode: 200,

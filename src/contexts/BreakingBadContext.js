@@ -12,8 +12,8 @@ export const BreakingBadContextProvider = (props) => {
 
   React.useEffect(() => {
     const fetchBreakingBad = async () => {
-      const charactersURL = `/.netlify/functions/breakingBad`
-      const quotesURL = "https://www.breakingbadapi.com/api/quotes"
+      const charactersURL = `/.netlify/functions/breakingBad?option=characters`
+      const quotesURL = `/.netlify/functions/breakingBad?option=quotes`
 
       try {
         const charactersResponse = await axios.get(charactersURL);
