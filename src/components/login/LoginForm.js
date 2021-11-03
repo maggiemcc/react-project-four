@@ -3,6 +3,7 @@ import { Box, Button, TextField } from "@mui/material";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useHistory} from "react-router-dom";
+import {useIdentityContext} from "react-netlify-identity-gotrue";
 
 const modalStyle = {
   // position: "absolute",
@@ -19,9 +20,10 @@ const modalStyle = {
   borderRadius: "10px",
 };
 
-const LoginForm = (props) => {
+const LoginForm = () => {
   const history = useHistory();
   const handleClose = () => history.push('/welcome');
+  const identity = useIdentityContext();
 
   return (
     <div>
@@ -42,11 +44,17 @@ const LoginForm = (props) => {
             .max(50, "Password should not exceed 50 characters")
             .required("Password required"),
         })}
-        onSubmit={(value, { setErrors, setStatus, setSubmitting }) => {
+        onSubmit={async (value, { setErrors, setStatus, setSubmitting }) => {
           try {
-            console.log("success");
             setStatus({ success: true });
             setSubmitting(false);
+            await identity.login({
+              email: value.email,
+              password: value.password
+            }).then(() => {
+              console.log("successly logged in");
+              handleClose();
+            })
           } catch (err) {
             console.error(err);
             setStatus({ success: false });
