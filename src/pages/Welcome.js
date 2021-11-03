@@ -1,5 +1,6 @@
 import breakingBad from "../data/breakingBad.jpeg";
 import { Link } from "react-router-dom";
+import {useIdentityContext} from "react-netlify-identity-gotrue";
 
 const linkStyle = {
   color: "white",
@@ -16,10 +17,14 @@ const linkStyle = {
   maxWidth: 800,
 }
 const Welcome = () => {
+  const identity = useIdentityContext();
+  console.log(identity);
+  
   return (
+    identity.provisionalUser ? <h1>Please check your email to confirm your account.</h1> :
     <div>
       <img src={breakingBad} alt="breaking bad" style={{ width: "100%", borderTop: "2px solid white", borderBottom: "2px solid white", marginBottom: "10px" }} />
-      <h1>Welcome</h1>
+      <h1>Welcome {identity.user?.email}!</h1>
 
     <div style={{padding: "5%"}}>
         <Link
