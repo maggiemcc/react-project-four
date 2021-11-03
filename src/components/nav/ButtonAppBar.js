@@ -96,12 +96,22 @@ const ButtonAppBar = () => {
 
             <Button color="inherit">
               <NavLink
+                to="/signup"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                Signup
+              </NavLink>
+            </Button>
+
+            <Button color="inherit">
+              <NavLink
                 to="/login"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 Login
               </NavLink>
             </Button>
+
           </Toolbar>
         </AppBar>
       </Box>

@@ -18,8 +18,8 @@ const linkStyle = {
 const Welcome = () => {
   return (
     <div>
-      <h1>Welcome To...</h1>
-      <img src={breakingBad} alt="breaking bad" style={{ width: "100%", marginTop: "10px", borderTop: "2px solid white", borderBottom: "2px solid white" }} />
+      <img src={breakingBad} alt="breaking bad" style={{ width: "100%", borderTop: "2px solid white", borderBottom: "2px solid white", marginBottom: "10px" }} />
+      <h1>Welcome</h1>
 
     <div style={{padding: "5%"}}>
         <Link
