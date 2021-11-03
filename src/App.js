@@ -40,7 +40,7 @@ const App = () => {
 
               <Switch>
                 <Route path="/" exact>
-                  <Redirect to="/signup" />
+                  <Redirect to="/login" />
                 </Route>
 
                 <Route path="/welcome" exact>
