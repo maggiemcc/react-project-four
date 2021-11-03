@@ -1,14 +1,15 @@
 import * as React from "react";
-// import { characters } from "../data/characters";
-import CharacterCard from "../components/CharacterCard";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import "../components/FilmCard.css";
-import Typography from "@mui/material/Typography";
-import { useBreakingBadContext } from "../contexts/BreakingBadContext";
-import IconButton from "@mui/material/IconButton";
+import {
+  Box,
+  Typography,
+  Modal,
+  IconButton,
+  CardActions,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import CardActions from "@mui/material/CardActions";
+import CharacterCard from "../components/CharacterCard";
+import "../components/FilmCard.css";
+import { useBreakingBadContext } from "../contexts/BreakingBadContext";
 
 const modalStyle = {
   position: "absolute",
@@ -100,7 +101,6 @@ const CharacterContainer = () => {
             style={{
               margin: "0 0 0 0",
               padding: 0,
-              // textDecoration: "underline",
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "center",

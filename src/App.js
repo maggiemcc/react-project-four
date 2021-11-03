@@ -9,7 +9,7 @@ import Welcome from "./pages/Welcome";
 import QuotesContainer from "./pages/QuotesContainer";
 import LoginForm from "./components/login/LoginForm";
 import NotFound from "./pages/NotFound";
-// import CharacterDetail from './pages/CharacterDetail'
+import CharacterDetail from './pages/CharacterDetail'
 
 const App = () => {
   const bull = (
@@ -47,10 +47,10 @@ const App = () => {
             <Route path="/characters" exact>
               <CharacterContainer sx={{ m: "auto", width: "auto" }} />
             </Route>
-{/* 
+
             <Route path="/characters/:characterId" exact>
               <CharacterDetail />
-            </Route> */}
+            </Route>
 
             <Route path="/quotes">
               <QuotesContainer />
