@@ -1,7 +1,7 @@
 import * as React from "react";
 import {
   Box,
-  Typography,
+  // Typography,
   Modal,
   IconButton,
   CardActions,
@@ -23,23 +23,6 @@ const modalStyle = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
-};
-
-const characterInfoContainerStyle = {
-  textAlign: "left",
-  border: "1px solid gray",
-  borderRadius: "8px",
-  padding: "2%",
-  width: "auto",
-};
-
-const characterInfoStyle = {
-  margin: 0,
-  padding: "2% 0",
-  display: "block",
-  paddingRight: "2.5%",
-  width: "auto",
-  fontSize: "14px",
 };
 
 const favoriteStyle = {
@@ -65,20 +48,22 @@ const bull = (
 );
 
 const CharacterContainer = () => {
-  const [open, setOpen] = React.useState(false);
-  const [modalInfo, setModalInfo] = React.useState([]);
-  const handleClose = () => setOpen(false);
-  const handleOpen = (character) => {
-    setOpen(true);
-    setModalInfo(() => {
-      return [character];
-    });
-  };
+  // const [open, setOpen] = React.useState(false);
+  // const [modalInfo, setModalInfo] = React.useState([]);
+  // const handleClose = () => setOpen(false);
+  // const handleOpen = (character) => {
+  //   setOpen(true);
+  //   setModalInfo(() => {
+  //     return [character];
+  //   });
+  // };
+  const [open, setOpen] = React.useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
   const [favorites, setFavorites] = React.useState([]);
   const breakingBadData = useBreakingBadContext();
 
   const addToFavorites = (character) => {
-    // console.log(`${character.name} was clicked`);
     if (!favorites.includes(character.name)) {
       setFavorites((prevState) => [...prevState, character.name]);
     } else {
@@ -179,44 +164,6 @@ const CharacterContainer = () => {
       <div>
         <Modal open={open} onClose={handleClose}>
           <Box sx={modalStyle}>
-            {modalInfo.map((character) => {
-              return (
-                <div
-                  style={characterInfoContainerStyle}
-                  key={character.char_id}
-                >
-                  <Typography
-                    variant="h6"
-                    style={{
-                      textAlign: "center",
-                      fontWeight: "bold",
-                      borderBottom: "1px solid gray",
-                    }}
-                  >
-                    {character.name}{" "}
-                  </Typography>
-
-                  <div style={{ textAlign: "left" }}>
-                    <p style={characterInfoStyle}>
-                      {bull} <b>Born:</b> {character.birthday}
-                    </p>
-                    <p style={characterInfoStyle}>
-                      {bull} <b>Nickname:</b> {character.nickname}
-                    </p>
-                    <p style={characterInfoStyle}>
-                      {bull} <b>Portrayed By:</b> {character.portrayed}
-                    </p>
-                    <p style={characterInfoStyle}>
-                      {bull} <b>Occupation:</b> {character.occupation[0]},{" "}
-                      {character.occupation[1]}
-                    </p>
-                    <p style={characterInfoStyle}>
-                      {bull} <b>Status:</b> {character.status}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
           </Box>
         </Modal>
       </div>
