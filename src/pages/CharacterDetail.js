@@ -9,10 +9,11 @@ let imageStyle = {
   width: "auto",
   overflow: "hidden",
   padding: 0,
-  margin: "auto 0",
+  margin: "auto",
   border: "3px solid white",
   borderRadius: "5px",
-  maxHeight: "300px",
+  height: "100%",
+  maxHeight: "250px",
   textAlign: "right",
 };
 
@@ -60,10 +61,11 @@ const CharacterDetail = () => {
           marginTop: "4%",
           display: "grid",
           gridTemplateColumns: "50% 50%",
+          gridColumnGap: "5px",
           maxWidth: "600px",
         }}
       >
-        <div style={{ textAlign: "left" }}>
+        <div style={{ textAlign: "left", margin: "auto 0"}}>
           <img style={imageStyle} src={character.img} alt="characterpicture" />
         </div>
 
