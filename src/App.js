@@ -11,6 +11,7 @@ import EpisodesContainer from "./pages/EpisodesContainer";
 import LoginForm from "./components/login/LoginForm";
 import NotFound from "./pages/NotFound";
 import CharacterDetail from "./pages/CharacterDetail";
+import DeathsContainer from "./pages/DeathsContainer"
 import NetlifyIdentityContext from "react-netlify-identity-gotrue";
 import SignupForm from "./components/login/SignupForm"
 
@@ -62,6 +63,10 @@ const App = () => {
 
                 <Route path="/episodes">
                   <EpisodesContainer />
+                </Route>
+
+                <Route path="/deaths">
+                  <DeathsContainer />
                 </Route>
 
                 <Route path="/login">

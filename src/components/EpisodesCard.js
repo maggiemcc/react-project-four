@@ -6,8 +6,6 @@ import Box from "@mui/material/Box";
 
 const EpisodesCard = (props) => {
   const { episode } = props;
-  console.log(episode);
-
   return (
     <Box
       sx={{
