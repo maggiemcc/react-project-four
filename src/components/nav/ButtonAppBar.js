@@ -16,6 +16,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import GroupIcon from '@mui/icons-material/Group';
 import HomeIcon from '@mui/icons-material/Home';
+import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
 const ButtonAppBar = () => {
@@ -61,6 +62,13 @@ const ButtonAppBar = () => {
             <FormatQuoteIcon sx={{ color: "white" }} />
           </ListItemIcon>
           <ListItemText primary="Quotes" />
+        </ListItem>
+
+        <ListItem button onClick={() => handleNavChoice('episodes')}>
+          <ListItemIcon>
+            <LocalMoviesIcon sx={{ color: "white" }} />
+          </ListItemIcon>
+          <ListItemText primary="Episodes" />
         </ListItem>
       </List>
     </Box>
