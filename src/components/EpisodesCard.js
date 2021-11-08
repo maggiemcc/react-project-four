@@ -1,42 +1,81 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+// import Card from "@mui/material/Card";
+import Box from "@mui/material/Box";
+// import CardContent from "@mui/material/CardContent";
+// import "../components/EpisodesCard.css";
 
 const EpisodesCard = (props) => {
   const { episode } = props;
- 
+  console.log(episode);
+
   return (
-    <Card
+    <Box
       sx={{
         width: "100%",
-        // maxWidth: "500px",
-        // minWidth: "350px",
+        padding: 0,
         height: "auto",
-        m: 2,
+        margin: "10px 2%",
+        borderRadius: "0",
         backgroundColor: "white",
         fontWeight: "300",
         "&:hover": {
-            backgroundColor: "green",
+          backgroundColor: "green",
           color: "white",
-        }
+        },
       }}
     >
-      <CardContent
+      <Box
         sx={{
-          padding: "4%",
-        //   height: "100%",
+          padding: "2%",
+        //   padding: "0",
         }}
       >
-        <h6 style={{fontWeight: "300", display: "left", textAlign: "left"}}>Season: {episode.season}</h6>
-        <h6 style={{fontWeight: "300", display: "left", textAlign: "left"}}>Episode: {episode.episode_id}</h6>
-        <h3 style={{ fontWeight: "bold", marginTop: "2%"}}>
-          "{episode.title}"
-        </h3>
-        <h4 style={{fontWeight: "300", textAlign: "right"}}>Air Date: {episode.air_date}</h4>
-
-
-      </CardContent>
-    </Card>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))",
+            paddingBottom: "0",
+            padding: 0,
+            textAlign: "left",
+            margin: "auto"
+          }}
+        >
+          <div style={{ margin: "auto 2%"}}>
+            <h6 style={{ fontWeight: "bold", display: "inline", margin: "0" }}>
+              Title:{" "}
+            </h6>
+            <h6 style={{ fontWeight: "300", display: "inline", margin: "0" }}>
+              {episode.title}
+            </h6>
+          </div>
+          <div style={{ margin: "auto 2%"}}>
+            <h6 style={{ fontWeight: "bold", display: "inline", margin: "0" }}>
+              Episode:{" "}
+            </h6>
+            <h6 style={{ fontWeight: "300", display: "inline", margin: "0" }}>
+              {episode.episode_id}
+            </h6>
+          </div>
+          <div style={{ margin: "auto 2%" }}>
+            <h6 style={{ fontWeight: "bold", display: "inline", margin: "0" }}>
+              Season:{" "}
+            </h6>
+            <h6 style={{ fontWeight: "300", display: "inline", margin: "0" }}>
+              {episode.season}
+            </h6>
+          </div>
+ 
+          <div style={{ margin: "auto 2%" }}>
+            <h6 style={{ fontWeight: "bold", display: "inline", margin: "0" }}>
+              Air Date:{" "}
+            </h6>
+            <h6 style={{ fontWeight: "300", display: "inline", margin: "0" }}>
+              {episode.air_date}
+            </h6>
+          </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

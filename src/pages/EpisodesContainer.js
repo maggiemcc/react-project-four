@@ -22,7 +22,7 @@ const EpisodesContainer = () => {
             <EpisodesCard
               key={episode.episode_id}
               episode={{ ...episode }}
-              sx={{ margin: "auto" }}
+              sx={{ margin: "auto"}}
             />
           );
         })}
