@@ -21,7 +21,7 @@ const DeathsContainer = () => {
           return (
             <DeathsCard
               key={death.death_id}
-              episode={{ ...death }}
+              death={{ ...death }}
               sx={{ margin: "auto"}}
             />
           );

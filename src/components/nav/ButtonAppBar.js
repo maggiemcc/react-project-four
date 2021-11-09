@@ -18,7 +18,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 
 const ButtonAppBar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -59,7 +59,7 @@ const ButtonAppBar = () => {
         
         <ListItem button onClick={() => handleNavChoice('deaths')}>
           <ListItemIcon>
-            <LocalHospitalIcon sx={{ color: "white" }} />
+            <HealthAndSafetyIcon sx={{ color: "white" }} />
           </ListItemIcon>
           <ListItemText primary="Character Deaths" />
         </ListItem>
