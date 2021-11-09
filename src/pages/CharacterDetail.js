@@ -13,12 +13,12 @@ let imageStyle = {
   border: "3px solid white",
   borderRadius: "5px",
   height: "100%",
-  maxHeight: "250px",
+  maxHeight: "350px",
   textAlign: "right",
 };
 
 const characterInfoStyle = {
-  margin: 0,
+  margin: "0 auto",
   padding: "10px 0",
   display: "block",
   paddingRight: "0",
@@ -42,8 +42,6 @@ const bull = (
 const CharacterDetail = () => {
   const params = useParams();
   const characterData = useBreakingBadContext();
-  // console.log(params);
-  // console.log(characterData.characters)
 
   const character = characterData.characters.find((item) => {
     return item.char_id === Number(params.characterId);
@@ -60,17 +58,17 @@ const CharacterDetail = () => {
           margin: "auto",
           marginTop: "4%",
           display: "grid",
-          gridTemplateColumns: "50% 50%",
+          gridTemplateColumns: "1fr 1fr",
           gridColumnGap: "5px",
-          maxWidth: "600px",
+          maxWidth: "750px",
         }}
       >
-        <div style={{ textAlign: "left", margin: "auto 0"}}>
+        <div style={{ textAlign: "left", margin: "auto 0", width: "100%"}}>
           <img style={imageStyle} src={character.img} alt="characterpicture" />
         </div>
 
         <div style={{ margin: "auto" }}>
-          <h3 style={{ textDecoration: "underline" }}>Chracter Information:</h3>
+          <h3 style={{ textDecoration: "underline", marginTop: "0" }}>Chracter Information:</h3>
           <h4 style={characterInfoStyle}>
             {bull} <b>Born:</b> {character.birthday}
           </h4>
@@ -81,12 +79,41 @@ const CharacterDetail = () => {
             {bull} <b>Portrayed By:</b> {character.portrayed}
           </h4>
           <h4 style={characterInfoStyle}>
-            {bull} <b>Occupation:</b> {character.occupation[0]}, {character.occupation[1]}
-          </h4>
-          <h4 style={characterInfoStyle}>
             {bull} <b>Status:</b> {character.status}
           </h4>
+          <div style={{margin: 0, display: "inline"}}>
+
+          <h4 style={characterInfoStyle}>
+            {bull} <b>Occupation(s):</b>
+          </h4>
+          <div
+          style={{
+            paddingLeft: "15px",
+          }}
+          >
+            {character.occupation.map((occupation, index) => {
+                  return (
+                    <h4
+                      key={occupation}
+                      style={{
+                        lineHeight: "24px",
+                        display: "block",
+                        // display: "inline-block",
+                        fontSize: 14,
+                        margin: 0,
+                      }}
+                    >- {(index ? " " : " ") + occupation}
+                    </h4>
+                  );
+                })}
+          </div>
+          </div>
+          {/* <h4 style={characterInfoStyle}>
+            {bull} <b>Occupation:</b> {character.occupation[0]}, {character.occupation[1]}
+          </h4> */}
+
         </div>
+        
       </div>
     </div>
   );

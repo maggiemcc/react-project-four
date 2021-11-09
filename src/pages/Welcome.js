@@ -43,11 +43,14 @@ const Welcome = () => {
               borderRadius: "10px",
               contain: "content",
               width: "100",
+              maxWidth: 750,
               "&:hover": {
                 border: "none",
-                backgroundColor: "rgb(223, 182, 0)",
+                // backgroundColor: "rgb(223, 182, 0)",
+                backgroundColor: "#d8a025",
                 // backgroundColor: "rgb(255,215,0)",
-                color: "black",
+                color: "white",
+                textStroke: "3px black",
               },
             }}
           >
@@ -81,10 +84,10 @@ const Welcome = () => {
               borderRadius: "10px",
               contain: "content",
               width: "100",
+              maxWidth: 750,
               "&:hover": {
                 border: "none",
-                // backgroundColor: "rgb(82, 12, 82)",
-                backgroundColor: "rgb(148,0,211)",
+                backgroundColor: "#5258a9",
                 color: "white",
               },
             }}
@@ -118,9 +121,10 @@ const Welcome = () => {
               borderRadius: "10px",
               contain: "content",
               width: "100",
+              maxWidth: 750,
               "&:hover": {
                 border: "none",
-                backgroundColor: "green",
+                backgroundColor: "#6e9036",
                 color: "white",
               },
             }}
@@ -154,9 +158,10 @@ const Welcome = () => {
               borderRadius: "10px",
               contain: "content",
               width: "100",
+              maxWidth: 750,
               "&:hover": {
                 border: "none",
-                backgroundColor: "teal",
+                backgroundColor: "#59917f",
                 // backgroundColor: "darkred",
                 // backgroundColor: "rgb(65,105,225)",
                 color: "white",
@@ -168,7 +173,7 @@ const Welcome = () => {
                 "https://pbs.twimg.com/media/DrY1vatWwAASk9e.jpg:large"
               }
               alt="breaking bad"
-              style={{ width: "100%" }}
+              style={{ width: "100%"}}
             />
             <h3 style={{ margin: "auto" }}>View Breaking Bad Character Deaths</h3>
 

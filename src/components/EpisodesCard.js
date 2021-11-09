@@ -1,78 +1,77 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-// import "../components/EpisodesCard.css";
+import Card from "@mui/material/Card";
+import "./EpisodeCard.css";
 
 const EpisodesCard = (props) => {
   const { episode } = props;
+  console.log(episode);
+
   return (
-    <Box
-      sx={{
-        width: "100%",
-        padding: 0,
-        height: "auto",
-        margin: "5px 2%",
-        borderRadius: "4px",
-        backgroundColor: "white",
-        fontWeight: "300",
-        "&:hover": {
-          backgroundColor: "green",
-          color: "white",
-        },
-      }}
-    >
+    <>
       <Box
         sx={{
-          padding: "2%",
+          width: "100%",
+          padding: 0,
+          height: "auto",
+          margin: "5px 2%",
+          borderRadius: "4px",
+          backgroundColor: "white",
         }}
       >
-        <Box
+        <Card
           sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))",
-            paddingBottom: "0",
-            padding: 0,
+            padding: "2% 1%",
+            display: "block",
             textAlign: "left",
-            margin: "auto"
+            "&:hover": {
+              backgroundColor: "green",
+              color: "white",
+            },
           }}
         >
-          <div style={{ margin: "auto 2%"}}>
-            <h6 style={{ fontWeight: "bold", display: "inline", margin: "0" }}>
-              Title:{" "}
-            </h6>
-            <h6 style={{ fontWeight: "300", display: "inline", margin: "0" }}>
-              {episode.title}
-            </h6>
+          <div>
+          <div style={{ margin: 0, marginBottom: "2%"}}>
+              <h4 style={{margin: 0}}><span>Episode Title: </span> {episode.title}</h4>
+            </div>
+
+          <div style={{ margin: "0", display: "flex", flexWrap: "wrap", gap: "12px"}}>
+              <h6><span>Season: </span> {episode.season}</h6>
+              <h6><span>Ep: </span> {episode.episode_id}</h6>
+              <h6><span>Air Date: </span> {episode.air_date}</h6>
+            </div>
           </div>
 
-          <div style={{ margin: "auto 2%" }}>
-            <h6 style={{ fontWeight: "bold", display: "inline", margin: "0" }}>
-              Season:{" "}
-            </h6>
-            <h6 style={{ fontWeight: "300", display: "inline", margin: "0" }}>
-              {episode.season}
-            </h6>
-          </div>
+          <div>
+            <div style={{ display: "inline-block", marginTop: "2%" }}>
+              <h6 style={{ display: "inline" }}>
+                <span>Character Appearances:</span>
+              </h6>
+              <div
+                style={{
+                  textAlign: "left",
+                }}
+              >
+                {episode.characters.map((character, index) => {
+                  return (
+                    <h6
+                      key={character}
+                      style={{
+                        lineHeight: "normal",
+                        display: "inline-block",
 
-          <div style={{ margin: "auto 2%"}}>
-            <h6 style={{ fontWeight: "bold", display: "inline", margin: "0" }}>
-              Episode:{" "}
-            </h6>
-            <h6 style={{ fontWeight: "300", display: "inline", margin: "0" }}>
-              {episode.episode_id}
-            </h6>
+                      }}
+                    >
+                      {(index ? ", " : "") + character}
+                    </h6>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-
-          <div style={{ margin: "auto 2%" }}>
-            <h6 style={{ fontWeight: "bold", display: "inline", margin: "0" }}>
-              Air Date:{" "}
-            </h6>
-            <h6 style={{ fontWeight: "300", display: "inline", margin: "0" }}>
-              {episode.air_date}
-            </h6>
-          </div>
-        </Box>
+        </Card>
       </Box>
-    </Box>
+    </>
   );
 };
 
