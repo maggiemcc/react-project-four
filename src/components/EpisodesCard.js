@@ -10,8 +10,8 @@ const EpisodesCard = (props) => {
         width: "100%",
         padding: 0,
         height: "auto",
-        margin: "10px 2%",
-        borderRadius: "0",
+        margin: "5px 2%",
+        borderRadius: "4px",
         backgroundColor: "white",
         fontWeight: "300",
         "&:hover": {
@@ -23,7 +23,6 @@ const EpisodesCard = (props) => {
       <Box
         sx={{
           padding: "2%",
-        //   padding: "0",
         }}
       >
         <Box
@@ -44,14 +43,7 @@ const EpisodesCard = (props) => {
               {episode.title}
             </h6>
           </div>
-          <div style={{ margin: "auto 2%"}}>
-            <h6 style={{ fontWeight: "bold", display: "inline", margin: "0" }}>
-              Episode:{" "}
-            </h6>
-            <h6 style={{ fontWeight: "300", display: "inline", margin: "0" }}>
-              {episode.episode_id}
-            </h6>
-          </div>
+
           <div style={{ margin: "auto 2%" }}>
             <h6 style={{ fontWeight: "bold", display: "inline", margin: "0" }}>
               Season:{" "}
@@ -60,7 +52,16 @@ const EpisodesCard = (props) => {
               {episode.season}
             </h6>
           </div>
- 
+
+          <div style={{ margin: "auto 2%"}}>
+            <h6 style={{ fontWeight: "bold", display: "inline", margin: "0" }}>
+              Episode:{" "}
+            </h6>
+            <h6 style={{ fontWeight: "300", display: "inline", margin: "0" }}>
+              {episode.episode_id}
+            </h6>
+          </div>
+
           <div style={{ margin: "auto 2%" }}>
             <h6 style={{ fontWeight: "bold", display: "inline", margin: "0" }}>
               Air Date:{" "}

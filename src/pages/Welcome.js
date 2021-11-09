@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useIdentityContext } from "react-netlify-identity-gotrue";
 
+
 const Welcome = () => {
   const identity = useIdentityContext();
   console.log(identity);
@@ -24,6 +25,81 @@ const Welcome = () => {
       <h1>Welcome {identity.user?.email}!</h1>
 
       <div style={{ padding: "5%" }}>
+      <Link to="/episodes" style={{
+              maxWidth: 800,
+              textDecoration: "none",
+        }} >
+          <Box
+            sx={{
+              color: "white",
+              textDecoration: "none",
+              margin: "auto",
+              padding: 0,
+              textAlign: "center",
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              border: "1px solid white",
+              marginBottom: "25px",
+              borderRadius: "10px",
+              contain: "content",
+              width: "100",
+              "&:hover": {
+                border: "none",
+                backgroundColor: "rgb(223, 182, 0)",
+                // backgroundColor: "rgb(255,215,0)",
+                color: "black",
+              },
+            }}
+          >
+          <h3 style={{ margin: "auto" }}>View Breaking Bad Episode List</h3>
+
+          <img
+            src={
+              "https://ntvb.tmsimg.com/assets/p8696131_b_h10_aa.jpg?w=960&h=540"
+            }
+            alt="breaking bad episodes"
+            style={{ width: "100%" }}
+          />
+          </Box>
+        </Link>
+
+      <Link to="/quotes" style={{
+              maxWidth: 800,
+              textDecoration: "none",
+        }} >
+          <Box
+            sx={{
+              color: "white",
+              textDecoration: "none",
+              margin: "auto",
+              padding: 0,
+              textAlign: "center",
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              border: "1px solid white",
+              marginBottom: "25px",
+              borderRadius: "10px",
+              contain: "content",
+              width: "100",
+              "&:hover": {
+                border: "none",
+                // backgroundColor: "rgb(82, 12, 82)",
+                backgroundColor: "rgb(148,0,211)",
+                color: "white",
+              },
+            }}
+          >
+          <img
+            src={
+              "https://www.magicalquote.com/wp-content/uploads/2020/03/Today-is-the-first-day-of-the-rest-of-your-life.jpg"
+            }
+            alt="breaking bad quotes"
+            style={{ width: "100%" }}
+          />
+          <h3 style={{ margin: "auto" }}>View Breaking Bad Quotes</h3>
+          </Box>
+        </Link>
+
         <Link to="/characters" style={{
               maxWidth: 800,
               textDecoration: "none"
@@ -38,13 +114,13 @@ const Welcome = () => {
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
               border: "1px solid white",
-              marginBottom: "5%",
+              marginBottom: "25px",
               borderRadius: "10px",
               contain: "content",
               width: "100",
               "&:hover": {
                 border: "none",
-                backgroundColor: "darkgreen",
+                backgroundColor: "green",
                 color: "white",
               },
             }}
@@ -60,9 +136,9 @@ const Welcome = () => {
           </Box>
         </Link>
 
-        <Link to="/quotes" style={{
+        <Link to="/deaths" style={{
               maxWidth: 800,
-              textDecoration: "none",
+              textDecoration: "none"
         }} >
           <Box
             sx={{
@@ -74,25 +150,28 @@ const Welcome = () => {
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
               border: "1px solid white",
-              marginBottom: "5%",
+              marginBottom: "0px",
               borderRadius: "10px",
               contain: "content",
               width: "100",
               "&:hover": {
                 border: "none",
-                backgroundColor: "rgb(223, 182, 0)",
-                color: "black",
+                backgroundColor: "teal",
+                // backgroundColor: "darkred",
+                // backgroundColor: "rgb(65,105,225)",
+                color: "white",
               },
             }}
           >
-          <img
-            src={
-              "https://i.pinimg.com/originals/70/df/18/70df18ff5cdddbe6250ac59de634b183.jpg"
-            }
-            alt="breaking bad quotes"
-            style={{ width: "100%" }}
-          />
-          <h3 style={{ margin: "auto" }}>View Breaking Bad Quotes</h3>
+            <img
+              src={
+                "https://pbs.twimg.com/media/DrY1vatWwAASk9e.jpg:large"
+              }
+              alt="breaking bad"
+              style={{ width: "100%" }}
+            />
+            <h3 style={{ margin: "auto" }}>View Breaking Bad Character Deaths</h3>
+
           </Box>
         </Link>
       </div>

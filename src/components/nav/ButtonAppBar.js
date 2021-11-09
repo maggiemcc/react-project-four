@@ -50,6 +50,20 @@ const ButtonAppBar = () => {
           <ListItemText primary="Welcome" />
         </ListItem>
 
+        <ListItem button onClick={() => handleNavChoice('episodes')}>
+          <ListItemIcon>
+            <LocalMoviesIcon sx={{ color: "white" }} />
+          </ListItemIcon>
+          <ListItemText primary="Episodes" />
+        </ListItem>
+
+        <ListItem button onClick={() => handleNavChoice('quotes')}>
+          <ListItemIcon>
+            <FormatQuoteIcon sx={{ color: "white" }} />
+          </ListItemIcon>
+          <ListItemText primary="Quotes" />
+        </ListItem>
+
         <ListItem button onClick={() => handleNavChoice('characters')}>
           <ListItemIcon>
             <GroupIcon sx={{ color: "white" }} />
@@ -62,20 +76,6 @@ const ButtonAppBar = () => {
             <HealthAndSafetyIcon sx={{ color: "white" }} />
           </ListItemIcon>
           <ListItemText primary="Character Deaths" />
-        </ListItem>
-
-        <ListItem button onClick={() => handleNavChoice('quotes')}>
-          <ListItemIcon>
-            <FormatQuoteIcon sx={{ color: "white" }} />
-          </ListItemIcon>
-          <ListItemText primary="Quotes" />
-        </ListItem>
-
-        <ListItem button onClick={() => handleNavChoice('episodes')}>
-          <ListItemIcon>
-            <LocalMoviesIcon sx={{ color: "white" }} />
-          </ListItemIcon>
-          <ListItemText primary="Episodes" />
         </ListItem>
       </List>
     </Box>

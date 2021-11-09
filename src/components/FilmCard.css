@@ -12,6 +12,7 @@ body {
 
 
 .cardTheme h1 {
+  color: rgb(223, 182, 0);
   color: red;
   font-size: 2rem;
   text-transform: capitalize;
