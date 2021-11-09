@@ -61,7 +61,7 @@ const Welcome = () => {
               "https://ntvb.tmsimg.com/assets/p8696131_b_h10_aa.jpg?w=960&h=540"
             }
             alt="breaking bad episodes"
-            style={{ width: "100%" }}
+            style={{ width: "100%", borderRadius: "0 10px 10px 0" }}
           />
           </Box>
         </Link>
@@ -97,7 +97,7 @@ const Welcome = () => {
               "https://www.magicalquote.com/wp-content/uploads/2020/03/Today-is-the-first-day-of-the-rest-of-your-life.jpg"
             }
             alt="breaking bad quotes"
-            style={{ width: "100%" }}
+            style={{ width: "100%", borderRadius: "10px 0 0 10px" }}
           />
           <h3 style={{ margin: "auto" }}>View Breaking Bad Quotes</h3>
           </Box>
@@ -135,7 +135,7 @@ const Welcome = () => {
                 "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/08/Better-Call-Saul-Every-Major-Breaking-Bad-Character-Still-Missing.jpg"
               }
               alt="breaking bad"
-              style={{ width: "100%" }}
+              style={{ width: "100%", borderRadius: "0 10px 10px 0"}}
             />
           </Box>
         </Link>
@@ -173,7 +173,7 @@ const Welcome = () => {
                 "https://pbs.twimg.com/media/DrY1vatWwAASk9e.jpg:large"
               }
               alt="breaking bad"
-              style={{ width: "100%"}}
+              style={{ width: "100%", borderRadius: "10px 0 0 10px"}}
             />
             <h3 style={{ margin: "auto" }}>View Breaking Bad Character Deaths</h3>
 
