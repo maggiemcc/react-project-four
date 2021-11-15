@@ -21,14 +21,14 @@ const Welcome = () => {
       {!identity.provisionalUser && !identity.user && (
         <div style={{ color: "white" }}>
           <h1>Welcome to Breaking Bad!</h1>
-          <h2>Please Signup and login to view content.</h2>
+          <h2>Please Signup or login to view content.</h2>
         </div>
       )}
 
       {identity.provisionalUser && (
         <div style={{ color: "white" }}>
           <h1>Thanks for signing up!</h1>
-          <h2>Check your email to confirm your account.</h2>
+          <h2>Please check your email "{identity.provisionalUser.email}" to confirm your account.</h2>
         </div>
       )}
 

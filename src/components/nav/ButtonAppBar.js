@@ -113,7 +113,7 @@ const ButtonAppBar = () => {
             </IconButton>
 
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Breaking Bad App
+              Breaking Bad
             </Typography>
 
             {!identity.user && !identity.provisionalUser && (
