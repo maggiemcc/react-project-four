@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import CharacterDetail from "./pages/CharacterDetail";
 import NetlifyIdentityContext from "react-netlify-identity-gotrue";
 import SignupForm from "./components/login/SignupForm";
+import ScrollToTop from "./ScrollToTop";
 
 const CharacterContainer = React.lazy(() => import("./pages/CharacterContainer"));
 const EpisodesContainer = React.lazy(() => import("./pages/EpisodesContainer"));
@@ -58,6 +59,7 @@ const App = () => {
               >
 
                 <Switch>
+                  <ScrollToTop >
                   <Route path="/" exact>
                     <Welcome />
                   </Route>
@@ -93,6 +95,7 @@ const App = () => {
                   <Route path="*">
                     <NotFound />
                   </Route>
+                  </ScrollToTop>
                 </Switch>
               </Suspense>
             </BreakingBadContextProvider>
