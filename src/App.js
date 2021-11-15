@@ -50,6 +50,8 @@ const App = () => {
           >
             <BreakingBadContextProvider>
               <ButtonAppBar />
+              <ScrollToTop >
+
               <Suspense
                 fallback={
                   <Box sx={style}>
@@ -57,9 +59,7 @@ const App = () => {
                   </Box>
                 }
               >
-
                 <Switch>
-                  <ScrollToTop >
                   <Route path="/" exact>
                     <Welcome />
                   </Route>
@@ -95,9 +95,10 @@ const App = () => {
                   <Route path="*">
                     <NotFound />
                   </Route>
-                  </ScrollToTop>
                 </Switch>
               </Suspense>
+              </ScrollToTop>
+
             </BreakingBadContextProvider>
           </div>
 
