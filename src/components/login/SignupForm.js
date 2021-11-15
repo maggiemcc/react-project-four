@@ -18,8 +18,9 @@ const modalStyle = {
 
 const SignupForm = () => {
   const history = useHistory();
-  const handleClose = () => history.push("/");
   const identity = useIdentityContext();
+  const handleClose = () => history.push("/");
+
 
   return (
     <div>

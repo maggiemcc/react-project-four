@@ -25,14 +25,14 @@ const Welcome = () => {
         </div>
       )}
 
-      {identity.provisionalUser && !identity.user && (
+      {identity.provisionalUser && (
         <div style={{ color: "white" }}>
           <h1>Thanks for signing up!</h1>
           <h2>Check your email to confirm your account.</h2>
         </div>
       )}
 
-      {identity.provisionalUser && identity.user && (
+      {identity.user && (
         <div>
           <h1>Welcome {identity.user?.user_metadata?.full_name}!</h1>
 
