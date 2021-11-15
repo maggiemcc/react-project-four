@@ -6,10 +6,6 @@ import { useHistory } from "react-router-dom";
 import {useIdentityContext} from "react-netlify-identity-gotrue";
 
 const modalStyle = {
-  // position: "absolute",
-  // top: "50%",
-  // left: "50%",
-  // transform: "translate(-50%, -50%)",
   margin: "5% auto",
   width: "80%",
   maxWidth: "500px",
@@ -22,7 +18,7 @@ const modalStyle = {
 
 const SignupForm = () => {
   const history = useHistory();
-  const handleClose = () => history.push("/welcome");
+  const handleClose = () => history.push("/");
   const identity = useIdentityContext();
 
   return (
@@ -31,8 +27,8 @@ const SignupForm = () => {
       <Box sx={modalStyle}>
         <Formik
           initialValues={{
-            userName: "Maggie",
-            email: "foo@example.com",
+            userName: "John Doe",
+            email: "johndoe@example.com",
             password: "password",
           }}
           validationSchema={Yup.object().shape({

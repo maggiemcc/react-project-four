@@ -1,21 +1,31 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./App.css";
-import CharacterContainer from "./pages/CharacterContainer";
-import Box from "@mui/material/Box";
+import { Box, CircularProgress } from "@mui/material";
 import { BreakingBadContextProvider } from "./contexts/BreakingBadContext";
 import ButtonAppBar from "./components/nav/ButtonAppBar";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Welcome from "./pages/Welcome";
-import QuotesContainer from "./pages/QuotesContainer";
-import EpisodesContainer from "./pages/EpisodesContainer";
 import LoginForm from "./components/login/LoginForm";
 import NotFound from "./pages/NotFound";
 import CharacterDetail from "./pages/CharacterDetail";
-import DeathsContainer from "./pages/DeathsContainer"
 import NetlifyIdentityContext from "react-netlify-identity-gotrue";
-import SignupForm from "./components/login/SignupForm"
+import SignupForm from "./components/login/SignupForm";
+
+const CharacterContainer = React.lazy(() => import("./pages/CharacterContainer"));
+const EpisodesContainer = React.lazy(() => import("./pages/EpisodesContainer"));
+const QuotesContainer = React.lazy(() => import("./pages/QuotesContainer"));
+const DeathsContainer = React.lazy(() => import("./pages/DeathsContainer"));
+
+const style = {
+  position: "absolute",
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+};
 
 const App = () => {
+
+
   const bull = (
     <Box
       component="span"
@@ -39,48 +49,52 @@ const App = () => {
           >
             <BreakingBadContextProvider>
               <ButtonAppBar />
+              <Suspense
+                fallback={
+                  <Box sx={style}>
+                    <CircularProgress />
+                  </Box>
+                }
+              >
 
-              <Switch>
-                <Route path="/" exact>
-                  <Redirect to="/welcome" />
-                </Route>
+                <Switch>
+                  <Route path="/" exact>
+                    <Welcome />
+                  </Route>
 
-                <Route path="/welcome" exact>
-                  <Welcome />
-                </Route>
+                  <Route path="/characters" exact>
+                    <CharacterContainer sx={{ m: "auto", width: "auto" }} />
+                  </Route>
 
-                <Route path="/characters" exact>
-                  <CharacterContainer sx={{ m: "auto", width: "auto" }} />
-                </Route>
+                  <Route path="/characters/:characterId" exact>
+                    <CharacterDetail />
+                  </Route>
 
-                <Route path="/characters/:characterId" exact>
-                  <CharacterDetail />
-                </Route>
+                  <Route path="/quotes">
+                    <QuotesContainer />
+                  </Route>
 
-                <Route path="/quotes">
-                  <QuotesContainer />
-                </Route>
+                  <Route path="/episodes">
+                    <EpisodesContainer />
+                  </Route>
 
-                <Route path="/episodes">
-                  <EpisodesContainer />
-                </Route>
+                  <Route path="/deaths">
+                    <DeathsContainer />
+                  </Route>
 
-                <Route path="/deaths">
-                  <DeathsContainer />
-                </Route>
+                  <Route path="/login">
+                    <LoginForm />
+                  </Route>
 
-                <Route path="/login">
-                  <LoginForm />
-                </Route>
+                  <Route path="/signup">
+                    <SignupForm />
+                  </Route>
 
-                <Route path="/signup">
-                  <SignupForm />
-                </Route>
-
-                <Route path="*">
-                  <NotFound />
-                </Route>
-              </Switch>
+                  <Route path="*">
+                    <NotFound />
+                  </Route>
+                </Switch>
+              </Suspense>
             </BreakingBadContextProvider>
           </div>
 

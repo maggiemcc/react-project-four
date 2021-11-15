@@ -43,7 +43,7 @@ const ButtonAppBar = () => {
       role="presentation"
     >
       <List>
-        <ListItem button onClick={() => handleNavChoice('welcome')}>
+        <ListItem button onClick={() => handleNavChoice('')}>
           <ListItemIcon>
             <HomeIcon sx={{ color: "white" }} />
           </ListItemIcon>
