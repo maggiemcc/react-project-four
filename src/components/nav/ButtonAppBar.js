@@ -55,34 +55,34 @@ const ButtonAppBar = () => {
 
         {identity.user && (
           <List>
-        <ListItem button onClick={() => handleNavChoice('episodes', true)}>
-          <ListItemIcon>
-            <LocalMoviesIcon sx={{ color: "white" }} />
-          </ListItemIcon>
-          <ListItemText primary="Episodes" />
-        </ListItem>
+            <ListItem button onClick={() => handleNavChoice('episodes', true)}>
+              <ListItemIcon>
+                <LocalMoviesIcon sx={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary="Episodes" />
+            </ListItem>
 
-        <ListItem button onClick={() => handleNavChoice('quotes', true)}>
-          <ListItemIcon>
-            <FormatQuoteIcon sx={{ color: "white" }} />
-          </ListItemIcon>
-          <ListItemText primary="Quotes" />
-        </ListItem>
+            <ListItem button onClick={() => handleNavChoice('quotes', true)}>
+              <ListItemIcon>
+                <FormatQuoteIcon sx={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary="Quotes" />
+            </ListItem>
 
-        <ListItem button onClick={() => handleNavChoice('characters', true)}>
-          <ListItemIcon>
-            <GroupIcon sx={{ color: "white" }} />
-          </ListItemIcon>
-          <ListItemText primary="Characters" />
-        </ListItem>
+            <ListItem button onClick={() => handleNavChoice('characters', true)}>
+              <ListItemIcon>
+                <GroupIcon sx={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary="Characters" />
+            </ListItem>
 
-        <ListItem button onClick={() => handleNavChoice('deaths', true)}>
-          <ListItemIcon>
-            <HealthAndSafetyIcon sx={{ color: "white" }} />
-          </ListItemIcon>
-          <ListItemText primary="Character Deaths" />
-        </ListItem>
-        </List>
+            <ListItem button onClick={() => handleNavChoice('deaths', true)}>
+              <ListItemIcon>
+                <HealthAndSafetyIcon sx={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary="Character Deaths" />
+            </ListItem>
+          </List>
         )}
       </List>
     </Box>
@@ -118,22 +118,22 @@ const ButtonAppBar = () => {
 
             {!identity.user && !identity.provisionalUser && (
               <div>
-              <Button color="inherit">
-                <NavLink
-                  to="/signup"
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  Signup
-                </NavLink>
-              </Button>
-              <Button color="inherit">
-                <NavLink
-                  to="/login"
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  Login
-                </NavLink>
-              </Button>
+                <Button color="inherit">
+                  <NavLink
+                    to="/signup"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    Signup
+                  </NavLink>
+                </Button>
+                <Button color="inherit">
+                  <NavLink
+                    to="/login"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    Login
+                  </NavLink>
+                </Button>
               </div>
             )}
 
@@ -149,7 +149,14 @@ const ButtonAppBar = () => {
             )}
 
             {identity.user && (
-              <Button color="inherit" onClick={identity.logout}> Logout</Button>
+              <Button color="inherit" onClick={identity.logout}>
+                <NavLink
+                to="/"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                Logout
+              </NavLink>
+              </Button>
             )}
 
           </Toolbar>
