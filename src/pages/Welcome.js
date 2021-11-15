@@ -2,7 +2,6 @@ import breakingBad from "../data/breakingBad.jpeg";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useIdentityContext } from "react-netlify-identity-gotrue";
-import ScrollToTop from "../contexts/ScrollToTop";
 
 const Welcome = () => {
   const identity = useIdentityContext();
@@ -38,7 +37,6 @@ const Welcome = () => {
           <h1>Welcome {identity.user?.user_metadata?.full_name}!</h1>
 
           <div style={{ padding: "5%" }}>
-            <ScrollToTop>
             <Link
               to="/episodes"
               style={{
@@ -206,7 +204,6 @@ const Welcome = () => {
                 </h3>
               </Box>
             </Link>
-            </ScrollToTop>
           </div>
         </div>
       )}
