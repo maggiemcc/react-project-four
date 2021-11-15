@@ -11,34 +11,29 @@ const EpisodesContainer = () => {
   return (
     <div>
       <h1>Episodes</h1>;
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-        }}
-      >
 
         {!identity.provisionalUser && !identity.user && (
           <h3 style={{ color: "white" }}>Please signup or login first.</h3>
         )};
 
         {identity.user && (
-          <div style={{margin: 0}}>
-            {breakingBadData.episodes.map((episode) => {
-              return (
-                <EpisodesCard
-                  key={episode.episode_id}
-                  episode={{ ...episode }}
-                  sx={{ margin: "auto" }}
-                />
-              );
-            })}
-          </div>
-
-        )}
+        <div style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}>
+          {breakingBadData.episodes.map((episode) => {
+            return (
+              <EpisodesCard
+                key={episode.episode_id}
+                episode={{ ...episode }}
+                sx={{ margin: "auto" }}
+              />
+            );
+          })}
+        </div>
+       )}
       </div>
-    </div>
   );
 };
 

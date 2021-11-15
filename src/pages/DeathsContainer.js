@@ -11,33 +11,31 @@ const DeathsContainer = () => {
   return (
     <div>
       <h1>Character Deaths</h1>;
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-        }}
-      >
 
-        {!identity.provisionalUser && !identity.user && (
-          <h3 style={{ color: "white" }}>Please signup or login first.</h3>
-        )};
+      {!identity.provisionalUser && !identity.user && (
+        <h3 style={{ color: "white" }}>Please signup or login first.</h3>
+      )};
 
 
-        {identity.user && (
-          <div>
-            {breakingBadData.deaths.map((death) => {
-              return (
-                <DeathsCard
-                  key={death.death_id}
-                  death={{ ...death }}
-                  sx={{ margin: "auto" }}
-                />
-              );
-            })}
-          </div>
-        )}
-      </div>
+      {identity.user && (
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
+          {breakingBadData.deaths.map((death) => {
+            return (
+              <DeathsCard
+                key={death.death_id}
+                death={{ ...death }}
+                sx={{ margin: "auto" }}
+              />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
