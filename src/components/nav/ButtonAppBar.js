@@ -117,6 +117,7 @@ const ButtonAppBar = () => {
             </Typography>
 
             {!identity.user && !identity.provisionalUser && (
+              <div>
               <Button color="inherit">
                 <NavLink
                   to="/signup"
@@ -125,9 +126,18 @@ const ButtonAppBar = () => {
                   Signup
                 </NavLink>
               </Button>
+              <Button color="inherit">
+                <NavLink
+                  to="/login"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  Login
+                </NavLink>
+              </Button>
+              </div>
             )}
 
-            {identity.provisionalUser && identity.user && (
+            {identity.provisionalUser && (
               <Button color="inherit">
                 <NavLink
                   to="/login"
