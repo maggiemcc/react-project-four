@@ -5,7 +5,7 @@ import "./EpisodeCard.css";
 
 const EpisodesCard = (props) => {
   const { episode } = props;
-  console.log(episode);
+  // console.log(episode);
 
   return (
     <>

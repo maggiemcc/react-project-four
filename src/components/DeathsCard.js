@@ -12,7 +12,7 @@ const style = {
 
 const DeathsCard = (props) => {
   const { death } = props;
-  console.log(death)
+  // console.log(death)
   return (
     <Box
       sx={{
