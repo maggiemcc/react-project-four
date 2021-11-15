@@ -127,7 +127,7 @@ const ButtonAppBar = () => {
               </Button>
             )}
 
-            {identity.provisionalUser && (
+            {identity.provisionalUser && identity.user && (
               <Button color="inherit">
                 <NavLink
                   to="/login"
