@@ -10,7 +10,7 @@ import NotFound from "./pages/NotFound";
 import CharacterDetail from "./pages/CharacterDetail";
 import NetlifyIdentityContext from "react-netlify-identity-gotrue";
 import SignupForm from "./components/login/SignupForm";
-import ScrollToTop from "./ScrollToTop";
+import ScrollToTop from "./contexts/ScrollToTop";
 
 const CharacterContainer = React.lazy(() => import("./pages/CharacterContainer"));
 const EpisodesContainer = React.lazy(() => import("./pages/EpisodesContainer"));
