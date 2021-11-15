@@ -19,8 +19,11 @@ import HomeIcon from '@mui/icons-material/Home';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
+import { useIdentityContext } from "react-netlify-identity-gotrue";
 
 const ButtonAppBar = () => {
+  const identity = useIdentityContext();
+
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
@@ -50,28 +53,28 @@ const ButtonAppBar = () => {
           <ListItemText primary="Welcome" />
         </ListItem>
 
-        <ListItem button onClick={() => handleNavChoice('episodes')}>
+        <ListItem button onClick={() => handleNavChoice('episodes', true)}>
           <ListItemIcon>
             <LocalMoviesIcon sx={{ color: "white" }} />
           </ListItemIcon>
           <ListItemText primary="Episodes" />
         </ListItem>
 
-        <ListItem button onClick={() => handleNavChoice('quotes')}>
+        <ListItem button onClick={() => handleNavChoice('quotes', true)}>
           <ListItemIcon>
             <FormatQuoteIcon sx={{ color: "white" }} />
           </ListItemIcon>
           <ListItemText primary="Quotes" />
         </ListItem>
 
-        <ListItem button onClick={() => handleNavChoice('characters')}>
+        <ListItem button onClick={() => handleNavChoice('characters', true)}>
           <ListItemIcon>
             <GroupIcon sx={{ color: "white" }} />
           </ListItemIcon>
           <ListItemText primary="Characters" />
         </ListItem>
-        
-        <ListItem button onClick={() => handleNavChoice('deaths')}>
+
+        <ListItem button onClick={() => handleNavChoice('deaths', true)}>
           <ListItemIcon>
             <HealthAndSafetyIcon sx={{ color: "white" }} />
           </ListItemIcon>
@@ -109,23 +112,31 @@ const ButtonAppBar = () => {
               Breaking Bad App
             </Typography>
 
-            <Button color="inherit">
-              <NavLink
-                to="/signup"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                Signup
-              </NavLink>
-            </Button>
+            {!identity.user && !identity.provisionalUser && (
+              <Button color="inherit">
+                <NavLink
+                  to="/signup"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  Signup
+                </NavLink>
+              </Button>
+            )}
 
-            <Button color="inherit">
-              <NavLink
-                to="/login"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                Login
-              </NavLink>
-            </Button>
+            {identity.user && (
+              <Button color="inherit">
+                <NavLink
+                  to="/login"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  Login
+                </NavLink>
+              </Button>
+            )}
+
+            {identity.user && (
+              <Button color="inherit" onClick={identity.logout}> Logout</Button>
+            )}
 
           </Toolbar>
         </AppBar>
