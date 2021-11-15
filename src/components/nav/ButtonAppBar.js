@@ -20,7 +20,6 @@ import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import { useIdentityContext } from "react-netlify-identity-gotrue";
-import { FamilyRestroomRounded } from "@mui/icons-material";
 
 const ButtonAppBar = () => {
   const identity = useIdentityContext();
@@ -53,7 +52,7 @@ const ButtonAppBar = () => {
           </ListItemIcon>
           <ListItemText primary="Welcome" />
         </ListItem>
-        
+
         {identity.user && (
           <List>
         <ListItem button onClick={() => handleNavChoice('episodes', true)}>
