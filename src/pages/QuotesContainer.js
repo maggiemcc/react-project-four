@@ -1,9 +1,13 @@
 import * as React from "react";
 import { useBreakingBadContext } from "../contexts/BreakingBadContext";
 import QuotesCard from "../components/QuotesCard";
+import { useIdentityContext } from "react-netlify-identity-gotrue";
+
 
 const QuotesContainer = () => {
   const breakingBadData = useBreakingBadContext();
+  const identity = useIdentityContext();
+
 
   return (
     <div>
@@ -15,17 +19,23 @@ const QuotesContainer = () => {
           justifyContent: "center",
         }}
       >
+        {!identity.provisionalUser && !identity.user && (
+          <h3 style={{color: "white"}}>Please signup or login first.</h3>
+        )};
 
-        
-        {breakingBadData.quotes.map((quote) => {
-          return (
-            <QuotesCard
-              key={quote.quote_id}
-              quote={{ ...quote }}
-              sx={{ margin: "auto" }}
-            />
-          );
-        })}
+        {identity.user && (
+          <div>
+            {breakingBadData.quotes.map((quote) => {
+              return (
+                <QuotesCard
+                  key={quote.quote_id}
+                  quote={{ ...quote }}
+                  sx={{ margin: "auto" }}
+                />
+              );
+            })}
+          </div>
+        )};
       </div>
     </div>
   );

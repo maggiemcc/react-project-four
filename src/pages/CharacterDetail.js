@@ -4,6 +4,8 @@ import { useBreakingBadContext } from "../contexts/BreakingBadContext";
 import {
   Box,
 } from "@mui/material";
+import { useIdentityContext } from "react-netlify-identity-gotrue";
+
 
 let imageStyle = {
   width: "auto",
@@ -42,79 +44,85 @@ const bull = (
 const CharacterDetail = () => {
   const params = useParams();
   const characterData = useBreakingBadContext();
+  const identity = useIdentityContext();
 
   const character = characterData.characters.find((item) => {
     return item.char_id === Number(params.characterId);
   });
-  console.log("Character--->", character);
+
+
 
   return (
-    <div style={{ color: "white", padding: "3%", margin: "auto" }}>
-      <h1>Character: {character.name}</h1>
-      <div
-        style={{
-          width: "100%",
-          textAlign: "left",
-          margin: "auto",
-          marginTop: "4%",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gridColumnGap: "5px",
-          maxWidth: "750px",
-        }}
-      >
-        <div style={{ textAlign: "left", margin: "auto 0", width: "100%"}}>
-          <img style={imageStyle} src={character.img} alt="characterpicture" />
-        </div>
 
-        <div style={{ margin: "auto" }}>
-          <h3 style={{ textDecoration: "underline", marginTop: "0" }}>Chracter Information:</h3>
-          <h4 style={characterInfoStyle}>
-            {bull} <b>Born:</b> {character.birthday}
-          </h4>
-          <h4 style={characterInfoStyle}>
-            {bull} <b>Nickname:</b> {character.nickname}
-          </h4>
-          <h4 style={characterInfoStyle}>
-            {bull} <b>Portrayed By:</b> {character.portrayed}
-          </h4>
-          <h4 style={characterInfoStyle}>
-            {bull} <b>Status:</b> {character.status}
-          </h4>
-          <div style={{margin: 0, display: "inline"}}>
+    <div>
+      {!identity.provisionalUser && !identity.user && (
+        <h3 style={{ color: "white" }}>Please signup or login first.</h3>
+      )};
 
-          <h4 style={characterInfoStyle}>
-            {bull} <b>Occupation(s):</b>
-          </h4>
+      {identity.user && (
+        <div style={{ color: "white", padding: "3%", margin: "auto" }}>
+          <h1>Character: {character.name}</h1>
           <div
-          style={{
-            paddingLeft: "15px",
-          }}
+            style={{
+              width: "100%",
+              textAlign: "left",
+              display: "flex",
+              flexWrap: "wrap",
+              maxWidth: "750px",
+              margin: "2% auto",
+            }}
           >
-            {character.occupation.map((occupation, index) => {
-                  return (
-                    <h4
-                      key={occupation}
-                      style={{
-                        lineHeight: "24px",
-                        display: "block",
-                        // display: "inline-block",
-                        fontSize: 14,
-                        margin: 0,
-                      }}
-                    >- {(index ? " " : " ") + occupation}
-                    </h4>
-                  );
-                })}
-          </div>
-          </div>
-          {/* <h4 style={characterInfoStyle}>
-            {bull} <b>Occupation:</b> {character.occupation[0]}, {character.occupation[1]}
-          </h4> */}
+            <div style={{ textAlign: "left", margin: "auto", }}>
+              <img style={imageStyle} src={character.img} alt="characterpicture" />
+            </div>
 
+            <div style={{ margin: "20px auto" }}>
+              <h3 style={{ textDecoration: "underline", marginTop: "0" }}>Chracter Information:</h3>
+              <h4 style={characterInfoStyle}>
+                {bull} <b>Born:</b> {character.birthday}
+              </h4>
+              <h4 style={characterInfoStyle}>
+                {bull} <b>Nickname:</b> {character.nickname}
+              </h4>
+              <h4 style={characterInfoStyle}>
+                {bull} <b>Portrayed By:</b> {character.portrayed}
+              </h4>
+              <h4 style={characterInfoStyle}>
+                {bull} <b>Status:</b> {character.status}
+              </h4>
+              <div style={{ margin: 0, display: "inline" }}>
+
+                <h4 style={characterInfoStyle}>
+                  {bull} <b>Occupation(s):</b>
+                </h4>
+                <div
+                  style={{
+                    paddingLeft: "15px",
+                  }}
+                >
+                  {character.occupation.map((occupation, index) => {
+                    return (
+                      <h4
+                        key={occupation}
+                        style={{
+                          lineHeight: "24px",
+                          display: "block",
+                          // display: "inline-block",
+                          fontSize: 14,
+                          margin: 0,
+                        }}
+                      >- {(index ? " " : " ") + occupation}
+                      </h4>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
-        
-      </div>
+      )}
+
     </div>
   );
 };
