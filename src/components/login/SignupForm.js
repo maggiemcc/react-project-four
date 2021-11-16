@@ -60,6 +60,7 @@ const SignupForm = () => {
               })
             } catch (err) {
               console.error(err);
+              alert(err);
               setStatus({ success: false });
               setErrors({ submit: err.message });
               setSubmitting(false);
