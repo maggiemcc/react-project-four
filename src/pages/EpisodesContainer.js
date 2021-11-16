@@ -9,7 +9,7 @@ const EpisodesContainer = () => {
   const identity = useIdentityContext();
 
   return (
-    <div>
+    <div style={{padding: "2%"}}>
       <h1>Episodes</h1>;
 
         {!identity.provisionalUser && !identity.user && (
@@ -18,9 +18,11 @@ const EpisodesContainer = () => {
 
         {identity.user && (
         <div style={{
-          display: "flex",
-          flexWrap: "wrap",
           justifyContent: "center",
+          display: "block",
+          width: "100%",
+          maxWidth: "1000px",
+          margin: "auto"
         }}>
           {breakingBadData.episodes.map((episode) => {
             return (
