@@ -42,9 +42,6 @@ const EpisodesCard = (props) => {
             <div style={{ marginTop: "18px" }}>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "5px 20px", }}>
                 <h6>
-                  <span>Series: </span> {episode.series}
-                </h6>
-                <h6>
                   <span>Season: </span> {episode.season}
                 </h6>
                 <h6>
@@ -53,34 +50,25 @@ const EpisodesCard = (props) => {
               </div>
             </div>
 
-            <div style={{ display: "inline-block", marginTop: "18px" }}>
-              <h6 style={{ display: "inline", }}>
+            <div style={{ display: "inline-block", marginTop: "18px"}}>
+              <h6 style={{ display: "inline" }}>
                 <span>Character Appearances:</span>
               </h6>
-              <div
-                style={{
-                  textAlign: "left",
-                }}
-              >
+              
+              <div style={{marginTop: "10px"}} >
                 {episode.characters.map((character, index) => {
                   return (
                     <h6
                       key={character}
                       style={{
-                        lineHeight: "20px",
+                        lineHeight: "22px",
                         display: "inline-block",
-                        // display: "block",
-                        // paddingTop: "5px",
-
-                        // paddingLeft: "15px",
                       }}
                     >
                       {(index ? ", " : "") + character}
-                      {/* {character} */}
                     </h6>
                   );
                 })}
-                {/* </div> */}
               </div>
             </div>
           </div>

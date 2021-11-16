@@ -9,22 +9,22 @@ const EpisodesContainer = () => {
   const identity = useIdentityContext();
 
   return (
-    <div style={{padding: "2%"}}>
+    <div style={{ padding: "2%" }}>
       <h1>Episodes</h1>;
 
-        {!identity.provisionalUser && !identity.user && (
-          <h3 style={{ color: "white" }}>Please signup or login first.</h3>
-        )};
+      {!identity.provisionalUser && !identity.user && (
+        <h3 style={{ color: "white" }}>Please signup or login first.</h3>
+      )};
 
-        {identity.user && (
+      {identity.user && (
         <div style={{
           justifyContent: "center",
           display: "block",
           width: "100%",
-          maxWidth: "1000px",
+          maxWidth: "1020px",
           margin: "auto"
         }}>
-          {breakingBadData.episodes.map((episode) => {
+          {breakingBadData.episodes.slice(0, 62).map((episode) => {
             return (
               <EpisodesCard
                 key={episode.episode_id}
@@ -34,8 +34,8 @@ const EpisodesContainer = () => {
             );
           })}
         </div>
-       )}
-      </div>
+      )}
+    </div>
   );
 };
 
