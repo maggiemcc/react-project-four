@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
 import { useIdentityContext } from "react-netlify-identity-gotrue";
 
-const modalStyle = {
+const loginStyle = {
   margin: "5% auto",
   width: "80%",
   maxWidth: "500px",
@@ -24,7 +24,7 @@ const LoginForm = () => {
   return (
     <div>
       <h1>Login Page</h1>
-      <Box sx={modalStyle}>
+      <Box sx={loginStyle}>
         <Formik
           initialValues={{
             email: "foo@example.com",
@@ -53,14 +53,13 @@ const LoginForm = () => {
               })
             } catch (err) {
               console.error(err);
+              alert("Please try again. No user was found with that email, or the password was invalid.")
               setStatus({ success: false });
               setErrors({ submit: err.message });
               setSubmitting(false);
             }
             finally {
-              // closeHandler();
               handleClose();
-
             }
           }}
         >
@@ -100,14 +99,11 @@ const LoginForm = () => {
                 type="password"
                 variant="outlined"
               />
-              {/* {errors.submit && (
-              <Box sx={{ mt: 3 }}>
-                <FormHelperText error>{errors.submit}</FormHelperText>
-              </Box>
-            )} */}
 
               <Button
-                color="primary"
+                style={{
+                  backgroundColor: "green",
+                }}
                 fullWidth
                 size="large"
                 variant="contained"

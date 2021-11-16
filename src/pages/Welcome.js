@@ -21,7 +21,7 @@ const Welcome = () => {
       {!identity.provisionalUser && !identity.user && (
         <div style={{ color: "white" }}>
           <h1>Welcome to Breaking Bad!</h1>
-          <h2>Please Signup or login to view content.</h2>
+          <h2>Please signup or login to view content.</h2>
         </div>
       )}
 
