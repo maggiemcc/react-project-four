@@ -1,7 +1,6 @@
 import * as React from "react";
 import {
   Box,
-  // Typography,
   Modal,
   IconButton,
   CardActions,
@@ -50,15 +49,6 @@ const bull = (
 );
 
 const CharacterContainer = () => {
-  // const [open, setOpen] = React.useState(false);
-  // const [modalInfo, setModalInfo] = React.useState([]);
-  // const handleClose = () => setOpen(false);
-  // const handleOpen = (character) => {
-  //   setOpen(true);
-  //   setModalInfo(() => {
-  //     return [character];
-  //   });
-  // };
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -82,14 +72,15 @@ const CharacterContainer = () => {
     setShowMore((prevShowMore) => !prevShowMore);
   };
   return (
-    <Box id="containerLayout" style={{ padding: "2%" }}>
+    <Box id="containerLayout" style={{ padding: "2% 0" }}>
       <h1>Characters</h1>
 
       {!identity.provisionalUser && !identity.user && (
         <h3 style={{ color: "white" }}>Please signup or login first.</h3>
-      )};
+      )}
+
       {identity.user && (
-        <div>
+        <div style={{margin: 0, padding: 0}}>
           <div style={favoriteStyle}>
             <div>
               <h3
@@ -119,9 +110,7 @@ const CharacterContainer = () => {
                   return (
                     <div
                       key={characterId}
-                      style={{
-                        padding: "0 5%",
-                      }}
+                      style={{padding: "0 5%"}}
                     >
                       <p
                         style={{
@@ -142,7 +131,6 @@ const CharacterContainer = () => {
 
           <div
             style={{
-              // marginTop: "2%",
               margin: 0,
               color: "black",
               backgroundColor: "white",

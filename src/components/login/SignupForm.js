@@ -117,11 +117,6 @@ const SignupForm = () => {
                 type="password"
                 variant="outlined"
               />
-              {/* {errors.submit && (
-              <Box sx={{ mt: 3 }}>
-                <FormHelperText error>{errors.submit}</FormHelperText>
-              </Box>
-            )} */}
 
               <Button
                 color="primary"
