@@ -1,40 +1,52 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+// import Card from "@mui/material/Card";
+import Box from "@mui/material/Box";
+
 
 const QuotesCard = (props) => {
   const { quote } = props;
- 
+
   return (
-    <Card
+    <Box
       sx={{
         width: "100%",
         maxWidth: "500px",
         minWidth: "350px",
         m: 2,
+        padding: "20px",
+        borderRadius: "10px",
+        // height: "auto",
         backgroundColor: "white",
         fontWeight: "300",
+        height: "auto",
         "&:hover": {
-            backgroundColor: "green",
+          backgroundColor: "green",
           color: "white",
         }
       }}
     >
-      <CardContent
+      <Box
         sx={{
-          padding: "4%",
-          height: "100%",
+          height: "auto",
+          padding: 0,
+          margin: "auto auto",
         }}
       >
-        <h6 style={{fontWeight: "300", display: "left", textAlign: "left"}}>#{quote.quote_id}</h6>
-        <h3 style={{ fontWeight: "bold", marginTop: "2%"}}>
-          "{quote.quote}"
-        </h3>
-        <h4 style={{fontWeight: "300", textAlign: "right"}}>- {quote.author}</h4>
+        <div style={{ padding: "2% 5%", margin: "0", height: "200px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignContent: "center",
+                  flexDirection: "column",
+      }}>
+          <h6 style={{ fontWeight: "300", textAlign: "left", margin: 0 }}>#{quote.quote_id}</h6>
+          <h3 style={{ fontWeight: "bold", margin: "15px 0",}}>
+            "{quote.quote}"
+          </h3>
+          <h4 style={{ fontWeight: "300", textAlign: "right", margin: 0 }}>- {quote.author}</h4>
+        </div>
 
-
-      </CardContent>
-    </Card>
+      </Box>
+    </Box>
   );
 };
 
