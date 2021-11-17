@@ -82,7 +82,7 @@ const CharacterContainer = () => {
     setShowMore((prevShowMore) => !prevShowMore);
   };
   return (
-    <Box id="containerLayout">
+    <Box id="containerLayout" style={{ padding: "2%" }}>
       <h1>Characters</h1>
 
       {!identity.provisionalUser && !identity.user && (

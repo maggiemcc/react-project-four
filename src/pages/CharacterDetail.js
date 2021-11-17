@@ -54,7 +54,7 @@ const CharacterDetail = () => {
 
   return (
 
-    <div>
+    <div style={{ padding: "2%" }}>
       {!identity.provisionalUser && !identity.user && (
         <h3 style={{ color: "white" }}>Please signup or login first.</h3>
       )};

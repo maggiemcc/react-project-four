@@ -53,7 +53,7 @@ const ButtonAppBar = () => {
           <ListItemText primary="Welcome" />
         </ListItem>
 
-        {identity.user && (
+        {/* {identity.user && ( */}
           <List>
             <ListItem button onClick={() => handleNavChoice('episodes', true)}>
               <ListItemIcon>
@@ -83,7 +83,7 @@ const ButtonAppBar = () => {
               <ListItemText primary="Character Deaths" />
             </ListItem>
           </List>
-        )}
+        {/* )} */}
       </List>
     </Box>
   );

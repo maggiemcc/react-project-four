@@ -10,8 +10,8 @@ const QuotesContainer = () => {
 
 
   return (
-    <div>
-      <h1>Quotes</h1>;
+    <div style={{ padding: "2%" }}>
+      <h1>Quotes</h1>
 
         {!identity.provisionalUser && !identity.user && (
           <h3 style={{color: "white"}}>Please signup or login first.</h3>

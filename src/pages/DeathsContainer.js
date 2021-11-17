@@ -9,8 +9,8 @@ const DeathsContainer = () => {
   const identity = useIdentityContext();
 
   return (
-    <div>
-      <h1>Character Deaths</h1>;
+    <div style={{ padding: "2%" }}>
+      <h1>Character Deaths</h1>
 
       {!identity.provisionalUser && !identity.user && (
         <h3 style={{ color: "white" }}>Please signup or login first.</h3>

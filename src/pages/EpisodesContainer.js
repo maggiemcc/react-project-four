@@ -10,7 +10,7 @@ const EpisodesContainer = () => {
 
   return (
     <div style={{ padding: "2%" }}>
-      <h1>Episodes</h1>;
+      <h1>Episodes</h1>
 
       {!identity.provisionalUser && !identity.user && (
         <h3 style={{ color: "white" }}>Please signup or login first.</h3>
