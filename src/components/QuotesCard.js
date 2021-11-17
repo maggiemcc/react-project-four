@@ -11,11 +11,9 @@ const QuotesCard = (props) => {
       sx={{
         width: "100%",
         maxWidth: "500px",
-        minWidth: "350px",
         m: 2,
         padding: "20px",
         borderRadius: "10px",
-        // height: "auto",
         backgroundColor: "white",
         fontWeight: "300",
         height: "auto",

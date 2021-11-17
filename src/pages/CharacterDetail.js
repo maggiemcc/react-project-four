@@ -107,7 +107,6 @@ const CharacterDetail = () => {
                         style={{
                           lineHeight: "24px",
                           display: "block",
-                          // display: "inline-block",
                           fontSize: 14,
                           margin: 0,
                         }}

@@ -12,7 +12,7 @@ const style = {
 
 const DeathsCard = (props) => {
   const { death } = props;
-  // console.log(death)
+
   return (
     <Box
       sx={{
@@ -22,7 +22,6 @@ const DeathsCard = (props) => {
         borderRadius: "5px",
         backgroundColor: "white",
         color: "black",
-        // border: "2px solid white",
         fontWeight: "300",
         "&:hover": {
           backgroundColor: "rgb(109, 3, 3)",
